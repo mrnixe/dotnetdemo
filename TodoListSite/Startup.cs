@@ -46,7 +46,7 @@ namespace TodoListSite
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // ITodoItemService 这个接口采用 FakeTodoItemService
-            services.AddSingleton<ITodoItemService, FakeTodoItemService>();
+            services.AddScoped<ITodoItemService, TodoItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

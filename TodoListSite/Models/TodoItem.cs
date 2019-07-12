@@ -8,6 +8,7 @@ namespace TodoListSite.Models
 
         public bool IsDone { get; set; }
 
+        
         public string Title { get; set; }
 
         public DateTimeOffset? DueAt { get; set; }

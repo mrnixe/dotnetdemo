@@ -34,5 +34,25 @@ namespace TodoListSite.Controllers
             // 使用 model 渲染视图
             return View(model);
         }
+
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddItem(TodoItem newItem)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var successful = await _TodoItemService.AddItemAsync(newItem);
+            if (!successful)
+            {
+                return BadRequest("Could not add item.");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+
     }
 }
