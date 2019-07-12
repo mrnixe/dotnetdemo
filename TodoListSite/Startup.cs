@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using TodoListSite.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TodoListSite.Services;
 
 namespace TodoListSite
 {
@@ -43,6 +44,9 @@ namespace TodoListSite
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // ITodoItemService 这个接口采用 FakeTodoItemService
+            services.AddSingleton<ITodoItemService, FakeTodoItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
