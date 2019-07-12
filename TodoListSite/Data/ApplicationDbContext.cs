@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TodoListSite.Models;
 
 namespace TodoListSite.Data
 {
@@ -12,5 +13,9 @@ namespace TodoListSite.Data
             : base(options)
         {
         }
+
+        public DbSet<TodoItem> Items { get; set; }
     }
+
+    
 }
