@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace TodoListSite.Controllers
 {
     [Authorize(Roles = Constants.AdministratorRole)]
+    //[Authorize]
     public class ManageUsersController : Controller
     {
 
